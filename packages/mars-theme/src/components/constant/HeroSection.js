@@ -2,6 +2,7 @@ import React from "react";
 import Container from "../constant/Container";
 import Title from "../constant/Title";
 import HeroDrop from "../constant/HeroDrop";
+import parse from "html-react-parser";
 
 import { connect, styled } from "frontity";
 
@@ -11,10 +12,10 @@ const Hero = ({ image, title }) => {
       <ImageContainer>
         <img src={image} alt="" />
       </ImageContainer>
-      <HeroContainer>
+      <HeroContainer className="hero-container">
         <TitleWrapper>
           <Title size="l" color="white">
-            {title}
+            {parse(title)}
           </Title>
         </TitleWrapper>
       </HeroContainer>

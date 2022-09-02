@@ -18,13 +18,19 @@
   },
   "prettier": {},
   "dependencies": {
+    "@fancyapps/ui": "^4.0.29",
     "@frontity/core": "^1.16.0",
     "@frontity/html2react": "^1.7.0",
     "@frontity/mars-theme": "./packages/mars-theme",
     "@frontity/tiny-router": "^1.4.4",
     "@frontity/wp-source": "^1.11.7",
+    "air-datepicker": "^3.2.0",
     "formik": "^2.2.9",
     "frontity": "^1.17.2",
+    "html-react-parser": "^3.0.1",
+    "react-google-recaptcha": "^2.1.0",
+    "react-scroll-to-top": "^3.0.0",
+    "simplebar-react": "^2.4.1",
     "swiper": "^8.1.4",
     "vercel": "^27.0.1"
   }

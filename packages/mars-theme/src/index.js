@@ -4,6 +4,9 @@ import iframe from "@frontity/html2react/processors/iframe";
 import link from "@frontity/html2react/processors/link";
 import menuHandler from "./components/handlers/menu-handler";
 import servicesHandler from "./components/handlers/services-handler";
+import newsHandler from "./components/handlers/news-handler";
+import jobsHandler from "./components/handlers/jobs-handler";
+import acfOptionsHandler from "./components/handlers/options-page-handler";
 
 const marsTheme = {
   name: "@frontity/mars-theme",
@@ -25,21 +28,23 @@ const marsTheme = {
       isMobileMenuOpened: false,
       isMobile: false,
       searchValue: "",
-      language: "EN",
+      language: "TH",
       languageDropdownOpened: false,
       languages: [
-        ["English", "EN"],
-        ["Thai", "TH"],
-        ["Deutsch", "DE"],
-        ["Español", "ES"],
-        ["Português", "PT"],
+        ["English", "EN", "/"],
+        ["Thai", "TH", "/th/"],
       ],
       featured: {
         showOnList: false,
         showOnPost: false,
       },
+      shareModalOpened: false,
+      isAllNewsShown: false,
       isAllPositionsShown: false,
+      hoveredMenuItem: null,
       selectedMenuItem: null,
+      isAllDirectorsShown: false,
+      recaptchaKey: "6Ldv0GIhAAAAAGkriXBu_jpG_XTl0n_IPwhQDjiO",
       menu: [],
       menuUrl: "main-menu",
       /*menu: [
@@ -190,6 +195,27 @@ const marsTheme = {
       handleSearchClear: ({ state }) => {
         state.theme.searchValue = "";
       },
+      handleShareModalOpen: ({ state }) => {
+        state.theme.shareModalOpened = true;
+      },
+      handleShareModalClose:
+        ({ state }) =>
+        (target) => {
+          const isShareModalClicked =
+            target.closest(".share-modal") || target.closest(".share-btn");
+
+          if (isShareModalClicked) {
+            return;
+          }
+
+          state.theme.shareModalOpened = false;
+        },
+      handleNewsShow: ({ state }) => {
+        state.theme.isAllNewsShown = true;
+      },
+      handleNewsToggle: ({ state }) => {
+        state.theme.isAllNewsShown = !state.theme.isAllNewsShown;
+      },
       handlePositionsShow: ({ state }) => {
         state.theme.isAllPositionsShown = true;
       },
@@ -202,10 +228,22 @@ const marsTheme = {
         state.theme.languageDropdownOpened =
           !state.theme.languageDropdownOpened;
       },
+      toggleDirectors: ({ state }) => {
+        state.theme.isAllDirectorsShown = !state.theme.isAllDirectorsShown;
+      },
       handleNavDropdown:
         ({ state }) =>
         (textValue) => {
-          const newMenu = state.source.get(`/menu/main-menu/`).items.concat();
+          let isThai = false;
+          if (state.source.url === 'https://sino.ux-mind.pro/th') {
+            isThai = true;
+          }
+          let newMenu = [];
+          if (isThai) {
+            newMenu = state.source.get(`/menu/thai-menu/`).items.concat();
+          } else {
+            newMenu = state.source.get(`/menu/main-menu/`).items.concat();            
+          }
           console.log(newMenu);
 
           // Function thet toggles menu dropdowns
@@ -223,6 +261,13 @@ const marsTheme = {
 
           //state.theme.menu = newMenu;
         },
+      clearHoveredItem: ({ state }) => (state.theme.hoveredMenuItem = null),
+      setHoveredItem:
+        ({ state }) =>
+        (menuItem) => {
+          state.theme.hoveredMenuItem = Object.assign({}, menuItem);
+          console.log(state.theme.hoveredMenuItem);
+        },
       clearMenuItem: ({ state }) => (state.theme.selectedMenuItem = null),
       setMenuItem:
         ({ state }) =>
@@ -233,8 +278,12 @@ const marsTheme = {
       handleSwiperStylesLoaded: ({ state }) =>
         (state.theme.swiperStylesLoading = false),
       beforeSSR: async ({ state, actions }) => {
-        await actions.source.fetch(`/menu/${state.theme.menuUrl}/`);
+        await actions.source.fetch(`/menu/thai-menu/`);
+        await actions.source.fetch(`/menu/main-menu/`);
         await actions.source.fetch(`/services/`);
+        await actions.source.fetch(`/company-news/`);
+        await actions.source.fetch(`/jobs/`);
+        await actions.source.fetch(`acf-settings`);
       },
     },
   },
@@ -248,7 +297,13 @@ const marsTheme = {
       processors: [image, iframe, link],
     },
     source: {
-      handlers: [menuHandler, servicesHandler],
+      handlers: [
+        menuHandler,
+        servicesHandler,
+        jobsHandler,
+        newsHandler,
+        acfOptionsHandler,
+      ],
     },
   },
 };

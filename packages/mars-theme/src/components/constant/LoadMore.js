@@ -2,16 +2,17 @@ import React from "react";
 import { font } from "../base/functions";
 import { styled } from "frontity";
 
-const LoadMore = ({ disabled, onClick }) => {
+const LoadMore = ({ disabled, onClick, text }) => {
   return (
     <Load disabled={disabled} onClick={onClick}>
-      Load More
+      {text}
     </Load>
   );
 };
 
 const Load = styled.button`
   ${font(24, 30)};
+  cursor: pointer;
   padding: 0.833em 1em;
   border-radius: 8px;
   border: none;
