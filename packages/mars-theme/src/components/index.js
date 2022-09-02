@@ -3,7 +3,7 @@ import { Global, connect, styled, Head } from "frontity";
 import Switch from "@frontity/components/switch";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import Loading from "./loading";
+import Loading from "./Loading";
 import PageError from "./PageError";
 import {
   setSwiperCssBundle,
@@ -16,7 +16,7 @@ import Service from "./Service/Service";
 import NewsSingle from "./NewsSingle/NewsSingle";
 import JobDetails from "./JobDetails/JobDetails";
 
-import { globalstyles } from "./base/globalstyle";
+import { globalstyles } from "./base/globalStyle";
 
 import ScrollToTop from "react-scroll-to-top";
 
