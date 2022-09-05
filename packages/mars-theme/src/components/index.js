@@ -81,6 +81,7 @@ const Theme = ({ state, actions }) => {
           href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/panzoom.css"
         />
         <html lang="en" />
+        <title>Sino Logistics Corporation</title>
       </Head>
 
       {/* Add some global styles for the whole site, like body or a's.
