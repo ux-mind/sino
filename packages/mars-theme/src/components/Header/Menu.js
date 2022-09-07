@@ -105,7 +105,7 @@ const MenuContainer = styled(Container)`
 const Menu = styled.div`
   position: fixed;
   box-sizing: border-box;
-  bottom: 0;
+  top: 72px;
   left: 0;
   background: var(--white);
   width: 100vw;
