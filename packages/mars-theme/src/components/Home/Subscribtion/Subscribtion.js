@@ -16,8 +16,28 @@ const Subscribtion = ({ state, post }) => {
   const formik = useFormik({
     initialValues: { email: "" },
     validate: (values) => validateEmail(values),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values) => {
+      const formData = new FormData();
+      formData.append('sl-name', 'formValues.name');
+      formData.append('sl-surname', 'formValues.surname');
+      formData.append('sl-email', 'formValues.email');
+      formData.append('sl-subject', 'formValues.subject');
+      formData.append('sl-resume', 'resumeFile');
+      formData.append('sl-message', 'formValues.message');
+
+      let res = await fetch("https://snorelab.ux-mind.pro/wp-content/themes/snorelab/send-form.php", {
+        mode: 'no-cors',
+        method: "POST",
+        body: formData,
+      });
+
+      console.log(res);
+      if (res.status === 200) {
+        console.log("Success");
+      } else {
+        console.log("Some error occured");
+      }
+      //alert(JSON.stringify(values, null, 2));
     },
   });
 

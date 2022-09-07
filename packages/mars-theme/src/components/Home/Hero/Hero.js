@@ -82,7 +82,7 @@ const Hero = ({ state, post }) => {
           modules={[Pagination, Autoplay]}
           loop={true}
           autoplay={{
-            delay: 4000,
+            delay: 5000,
           }}
           pagination={{ clickable: true }}
           onSwiper={(swiper) => console.log(swiper)}
