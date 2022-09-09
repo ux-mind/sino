@@ -19,6 +19,7 @@ import JobDetails from "./JobDetails/JobDetails";
 import { globalstyles } from "./base/globalStyle";
 
 import ScrollToTop from "react-scroll-to-top";
+import ReactGA from 'react-ga';
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -54,6 +55,11 @@ const Theme = ({ state, actions }) => {
     setDatepickerBundle();
     actions.theme.handleSwiperStylesLoaded();
   }, []);
+
+  useEffect(() => {
+    ReactGA.initialize('UA-238908133-1');
+    ReactGA.pageview('/');
+  }, [])
 
   return (
     <>
