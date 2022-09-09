@@ -27,6 +27,7 @@
     "air-datepicker": "^3.2.0",
     "formik": "^2.2.9",
     "frontity": "^1.17.2",
+    "frontity-contact-form-7": "^0.1.7",
     "html-react-parser": "^3.0.1",
     "react-google-recaptcha": "^2.1.0",
     "react-scroll-to-top": "^3.0.0",

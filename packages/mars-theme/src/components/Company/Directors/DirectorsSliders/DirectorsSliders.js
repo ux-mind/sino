@@ -118,7 +118,7 @@ const DirectorsSliders = ({ state, actions, post }) => {
         </SliderRow>
         <LoadWrapper>
           <LoadMore onClick={() => actions.theme.toggleDirectors()}>
-            <span>Load More</span>
+            <span>{post.acf.company_load_more_button ? parse(post.acf.company_load_more_button) : ''}</span>
             <div
               css={
                 isAllDirectorsShown &&

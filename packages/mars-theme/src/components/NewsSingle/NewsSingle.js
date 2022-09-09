@@ -18,7 +18,7 @@ const NewsSingle = ({ state }) => {
     <NewsSingleWrapper>
       <Hero title={options.acf.news_top_banner_title} image={options.acf.news_top_banner_image.url} />
       <NewsPost post={post} />
-      <OtherNews />
+      <OtherNews state={state} />
       <MediaContact post={options} />
     </NewsSingleWrapper>
   );

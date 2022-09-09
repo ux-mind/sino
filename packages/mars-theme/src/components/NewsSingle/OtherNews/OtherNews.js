@@ -3,8 +3,9 @@ import Container from "../../constant/Container";
 import Link from "../../constant/Link";
 import { font, flex } from "../../base/functions";
 import { styled, connect } from "frontity";
+import parse from "html-react-parser";
 
-const otherNews = [
+/*const otherNews = [
   {
     id: 1,
     title:
@@ -18,9 +19,29 @@ const otherNews = [
     link: "/news-single/",
     date: "12 Oct 2021",
   },
-];
+];*/
 
-const OtherNews = () => {
+const OtherNews = ({ state }) => {
+  const otherNews = state.source.get(`/company-news/`).items.slice(0, 2);
+
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug'
+  ];
+
+  const dateHandler = (date) => {
+    const year = date.split('-')[0];
+    const month = Number(date.split('-')[1]);
+    const day = date.split('-')[2].substr(0, 2);
+    return day + ' ' + months[month-1] + ' ' + year;
+  }
+
   return (
     <Section>
       <Container>
@@ -30,9 +51,9 @@ const OtherNews = () => {
             return (
               <Post key={post.id}>
                 <PostTitle>
-                  <Link link={post.link}>{post.title}</Link>
+                  <Link link={post.link}>{parse(post.title.rendered)}</Link>
                 </PostTitle>
-                <Date>{post.date}</Date>
+                <Date>{dateHandler(post.date)}</Date>
               </Post>
             );
           })}
