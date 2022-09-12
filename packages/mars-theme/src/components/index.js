@@ -58,8 +58,8 @@ const Theme = ({ state, actions }) => {
 
   useEffect(() => {
     ReactGA.initialize('UA-238908133-1');
-    ReactGA.pageview('/');
-  }, [])
+    ReactGA.pageview(window.location.pathname);
+  }, []);
 
   return (
     <>
