@@ -31,8 +31,8 @@ const marsTheme = {
       language: "TH",
       languageDropdownOpened: false,
       languages: [
-        ["English", "EN", "/"],
-        ["Thai", "TH", "/th/"],
+        ["English", "EN", ""],
+        ["Thai", "TH", "/th"],
       ],
       featured: {
         showOnList: false,

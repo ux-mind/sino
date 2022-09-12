@@ -169,7 +169,7 @@ const SearchBlock = ({ state, actions }) => {
                     name="language"
                     text={`${lang} - ${value}`}
                     value={value}
-                    url={url}
+                    url={url + state.router.link}
                   />
                 ))}
               </div>

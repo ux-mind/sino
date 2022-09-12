@@ -71,10 +71,10 @@ const Language = ({ state, actions }) => {
             name="language"
             text={`${lang} - ${value}`}
             value={value}
-            onClick={(evt) =>
-              handleLanguageChange(evt)
-            }
-            url={url}
+            onClick={(evt) => {
+              handleLanguageChange(evt);
+            }}
+            url={url + state.router.link}
           />
         ))}
       </Dropdown>
