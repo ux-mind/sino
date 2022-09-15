@@ -82,26 +82,7 @@ const NewsPost = ({ state, actions, post }) => {
                   shareModalOpened && "share-modal_opened"
                 }`}
               >
-                <FacebookShareButton
-                  url={"https://www.sinologistics.co.th/" + state.router.link}
-                  quote={"フェイスブックはタイトルが付けれるようです"}
-                  description={"aiueo"}
-                  title={parse(post.title.rendered)}
-                  className="Demo__some-network__share-button"
-                >
-                  <img width="16" height="16" src={facebook} alt="" />
-                  <span>Facebook</span>
-                </FacebookShareButton>
-                <br />
-                <TwitterShareButton
-                  title={"test"}
-                  url={"https://peing.net/ja/"}
-                  hashtags={["hashtag1", "hashtag2"]}
-                >
-                  <img width="16" height="16" src={twitter} alt="" />
-                  <span>Twitter</span>
-                </TwitterShareButton>
-                <ShareLink link="/facebook/">
+                <ShareLink link={"https://www.facebook.com/share.php?u=www.sinologistics.co.th/" + state.router.link} target="_blank">
                   <img width="16" height="16" src={facebook} alt="" />
                   <span>Facebook</span>
                 </ShareLink>
