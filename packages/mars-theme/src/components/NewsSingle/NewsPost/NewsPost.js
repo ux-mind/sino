@@ -86,7 +86,7 @@ const NewsPost = ({ state, actions, post }) => {
                   <img width="16" height="16" src={facebook} alt="" />
                   <span>Facebook</span>
                 </ShareLink>
-                <ShareLink link="/linkedin/">
+                <ShareLink link={"https://www.linkedin.com/shareArticle?mini=true&url=www.sinologistics.co.th/" + state.router.link} target="_blank">
                   <img width="16" height="16" src={linkedin} alt="" />
                   <span>Linkedin</span>
                 </ShareLink>
@@ -94,7 +94,7 @@ const NewsPost = ({ state, actions, post }) => {
                   <img width="16" height="16" src={message} alt="" />
                   <span>Email</span>
                 </ShareLink>
-                <ShareLink link="/twitter/">
+                <ShareLink link={"https://twitter.com/intent/tweet?url=www.sinologistics.co.th/" + state.router.link} target="_blank">
                   <img width="16" height="16" src={twitter} alt="" />
                   <span>Twitter</span>
                 </ShareLink>
