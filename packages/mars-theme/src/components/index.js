@@ -88,8 +88,6 @@ const Theme = ({ state, actions }) => {
         />
         <html lang="en" />
         <title>Sino Logistics Corporation</title>
-        <meta property="og:title" content="MyApp" />
-        <meta property="og:image" content="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" />
       </Head>
 
       {/* Add some global styles for the whole site, like body or a's.

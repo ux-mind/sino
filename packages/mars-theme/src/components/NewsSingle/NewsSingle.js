@@ -6,6 +6,7 @@ import OtherNews from "./OtherNews/OtherNews";
 import { styled, connect } from "frontity";
 
 import news from "../../assets/images/news-poster.png";
+import { Head } from "frontity";
 
 const NewsSingle = ({ state }) => {
   const options = state.source.get("acf-settings");
@@ -16,6 +17,9 @@ const NewsSingle = ({ state }) => {
   console.log(post)
   return (
     <NewsSingleWrapper>
+      <Head>
+        <meta property="og:image" content="https://static6.depositphotos.com/1003369/659/i/600/depositphotos_6591667-stock-photo-close-up-of-beautiful-womanish.jpg" />
+      </Head>
       <Hero title={options.acf.news_top_banner_title} image={options.acf.news_top_banner_image.url} />
       <NewsPost post={post} />
       <OtherNews state={state} />
