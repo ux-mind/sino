@@ -18,7 +18,7 @@ const NewsSingle = ({ state }) => {
   return (
     <NewsSingleWrapper>
       <Head>
-        <meta property="og:image" content="https://static6.depositphotos.com/1003369/659/i/600/depositphotos_6591667-stock-photo-close-up-of-beautiful-womanish.jpg" />
+        <meta property="og:image" content={post.acf.news_item_thumbnail_2x.url} />
       </Head>
       <Hero title={options.acf.news_top_banner_title} image={options.acf.news_top_banner_image.url} />
       <NewsPost post={post} />
