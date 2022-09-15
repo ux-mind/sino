@@ -19,6 +19,7 @@ const NewsSingle = ({ state }) => {
     <NewsSingleWrapper>
       <Head>
         <meta property="og:image" content={post.acf.news_item_thumbnail_2x.url} />
+        <meta property="og:title" content={post.title.rendered} />
       </Head>
       <Hero title={options.acf.news_top_banner_title} image={options.acf.news_top_banner_image.url} />
       <NewsPost post={post} />
