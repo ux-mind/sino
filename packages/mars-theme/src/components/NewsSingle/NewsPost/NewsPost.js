@@ -16,6 +16,8 @@ import linkedin from "../../../assets/images/svg/LinkedIn.svg";
 import message from "../../../assets/images/svg/Message.svg";
 import twitter from "../../../assets/images/svg/Twitter.svg";
 
+import { FacebookShareButton, TwitterShareButton } from "react-share";
+
 /*const post = {
   id: 2,
   title:
@@ -80,6 +82,25 @@ const NewsPost = ({ state, actions, post }) => {
                   shareModalOpened && "share-modal_opened"
                 }`}
               >
+                <FacebookShareButton
+                  url={"https://www.sinologistics.co.th/" + state.router.link}
+                  quote={"フェイスブックはタイトルが付けれるようです"}
+                  description={"aiueo"}
+                  title={parse(post.title.rendered)}
+                  className="Demo__some-network__share-button"
+                >
+                  <img width="16" height="16" src={facebook} alt="" />
+                  <span>Facebook</span>
+                </FacebookShareButton>
+                <br />
+                <TwitterShareButton
+                  title={"test"}
+                  url={"https://peing.net/ja/"}
+                  hashtags={["hashtag1", "hashtag2"]}
+                >
+                  <img width="16" height="16" src={twitter} alt="" />
+                  <span>Twitter</span>
+                </TwitterShareButton>
                 <ShareLink link="/facebook/">
                   <img width="16" height="16" src={facebook} alt="" />
                   <span>Facebook</span>

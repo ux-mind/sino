@@ -69,7 +69,7 @@ const Router = ({ state }) => {
       return <PrivacyPolicy post={post} />;
     case "/terms-of-use/":
       return <TermsOfUse post={post} />;
-    case "/request-a-quote/":
+    case "/request/":
       return <RequestQuote post={post} />;
     case "/job-details/":
       return <JobDetails post={post} />;
@@ -117,7 +117,7 @@ const Router = ({ state }) => {
       return <PrivacyPolicy post={post} />;
     case "/th/terms-of-use/":
       return <TermsOfUse post={post} />;
-    case "/th/request-a-quote/":
+    case "/th/request/":
       return <RequestQuote post={post} />;
     case "/th/job-details/":
       return <JobDetails post={post} />;
