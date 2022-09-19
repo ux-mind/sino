@@ -59,7 +59,11 @@ const PositionsList = ({ state, actions, post, jobs }) => {
     'May',
     'Jun',
     'Jul',
-    'Aug'
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
   ];
 
   const dateHandler = (date) => {

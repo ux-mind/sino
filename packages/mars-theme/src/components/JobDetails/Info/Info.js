@@ -80,7 +80,7 @@ const Info = ({ post }) => {
           <ImageWrapper>
             <img
               src={post.acf.job_image_1x.url}
-              srcSet={`${post.acf.job_image_1x.url} 1x, ${post.acf.job_image_2x.url} 2x`}
+              srcSet={post.acf.job_image_2x ? `${post.acf.job_image_1x.url} 1x, ${post.acf.job_image_2x.url} 2x` : `${post.acf.job_image_1x.url} 1x, ${post.acf.job_image_1x.url} 2x`}
               alt="company"
             />
           </ImageWrapper>

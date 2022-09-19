@@ -6,6 +6,7 @@ import Careers from "./Careers/Careers";
 import Contact from "./Contact/Contact";
 import Investor from "./Investor/Investor";
 import News from "./News/News";
+import Test from "./Test";
 import NewsSingle from "./NewsSingle/NewsSingle";
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
 import TermsOfUse from "./TermsOfUse/TermsOfUse";
@@ -75,6 +76,10 @@ const Router = ({ state }) => {
       return <JobDetails post={post} />;
     case "/whistleblowing-form/":
       return <Whistleblowing post={post} />;
+    case "/test/":
+      return <Test post={post} />;
+    case "/th/test/":
+      return <Test post={post} />;
     case "/th/":
       return <Home post={post} />;
     case "/th/careers/":
