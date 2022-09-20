@@ -47,6 +47,7 @@ const marsTheme = {
       recaptchaKey: "6Ldv0GIhAAAAAGkriXBu_jpG_XTl0n_IPwhQDjiO",
       menu: [],
       menuUrl: "main-menu",
+      redirect: '/contact/',
       /*menu: [
         {
           isDropdown: true,
@@ -172,6 +173,9 @@ const marsTheme = {
    */
   actions: {
     theme: {
+      setRedirect: ({ state }) => value => {
+        state.theme.redirect = value;
+      },
       checkIsMobile: ({ state }) => {
         const windowWidth = window.innerWidth;
 

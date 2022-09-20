@@ -53,7 +53,6 @@ const settings = [
   },
   {
   name: "sino-th",
-  match: ["https?:\\/\\/[^/]+\\/th([^-\\w]|$)"],
   state: {
     frontity: {
       url: "https://test.frontity.org",
@@ -78,16 +77,8 @@ const settings = [
       name: "@frontity/wp-source",
       state: {
         source: {
-          url: "https://sino.ux-mind.pro",
+          url: "https://sino.ux-mind.pro/th",
           homepage: "home-page",
-          match: ["https?:\\/\\/[^/]+\\/th([^-\\w]|$)"],
-          state: {
-            frontity: {
-              url: "https://test.frontity.org",
-              title: "Frontity UK",
-              description: "WordPress installation for Frontity development"
-            }
-          },
           "postTypes": [
             {
               type: "services",

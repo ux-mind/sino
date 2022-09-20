@@ -169,7 +169,7 @@ const SearchBlock = ({ state, actions }) => {
                     name="language"
                     text={`${lang} - ${value}`}
                     value={value}
-                    url={url + state.router.link}
+                    url={value === 'EN' ? state.router.link : state.router.link+'?frontity_name=sino-th'}
                   />
                 ))}
               </div>

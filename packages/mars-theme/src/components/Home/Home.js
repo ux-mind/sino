@@ -7,8 +7,9 @@ import Contact from "./Contact/Contact";
 import Subscribtion from "./Subscribtion/Subscribtion";
 import { connect, styled } from "frontity";
 
-const Home = ({post}) => {
+const Home = ({ post }) => {
   return (
+    <>
     <HomeWrapper>
       <Hero post={post} />
       <Services post={post} />
@@ -17,6 +18,7 @@ const Home = ({post}) => {
       <Contact post={post} />
       <Subscribtion post={post} />
     </HomeWrapper>
+    </>
   );
 };
 
