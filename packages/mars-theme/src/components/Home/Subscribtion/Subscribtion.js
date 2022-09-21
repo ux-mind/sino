@@ -67,14 +67,9 @@ const Subscribtion = ({ state, post }) => {
         }
         console.log(JSON.stringify(data));*/
         const formData = new FormData();
-        formData.append('sl-name', 'formValues.name');
-        formData.append('sl-surname', 'formValues.surname');
-        formData.append('sl-email', 'formValues.email');
-        formData.append('sl-subject', 'formValues.subject');
-        formData.append('sl-resume', 'resumeFile');
-        formData.append('sl-message', 'formValues.message');
+        formData.append('sino-email', formValues.email);
 
-        let res = await fetch("https://snorelab.ux-mind.pro/wp-content/themes/snorelab/send-form.php", {
+        let res = await fetch("https://sino.ux-mind.pro/wp-content/themes/sino/send-email.php", {
           method: "POST",
           body: formData,
         });

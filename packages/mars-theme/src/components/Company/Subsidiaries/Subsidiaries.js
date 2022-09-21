@@ -43,7 +43,7 @@ const Subsidiaries = ({ state, post }) => {
                 <img
                   // TODO:
                   // src={slide.companyImg}
-                  src={post.acf.company_subsidiaries_background.url}
+                  src={slide.company_subsidiaries_slide_image.url}
                   alt={`slide-${index}`}
                 />
               </SlideBgWrapper>
@@ -99,7 +99,30 @@ const Subsidiaries = ({ state, post }) => {
                 );
               })}
             </Swiper>
-            <VisitBlock>
+            <Swiper
+              className="link-swiper"
+              loop={true}
+              modules={[Pagination, Navigation, Controller]}
+              onSwiper={(swiper) => updateSwiper(swiper)}
+            >
+              {slides.map((slide, index) => {
+                return (
+                  <SwiperSlide key={`subsidiaries-link-${index}`}>
+                    <VisitBlock>
+                      <VisitButton
+                        // href={slide.link}
+                        href={slide.company_subsidiaries_slide_link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {parse(post.acf.company_subsidiaries_button_text)}
+                      </VisitButton>
+                    </VisitBlock>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+            <VisitBlockNav>
               {!isMobile && (
                 <SwiperButtons
                   prevClassName={"subsidiaries-prev"}
@@ -108,15 +131,7 @@ const Subsidiaries = ({ state, post }) => {
                   color="white"
                 />
               )}
-              <VisitButton
-                // href={slide.link}
-                href={post.acf.company_subsidiaries_button_link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {parse(post.acf.company_subsidiaries_button_text)}
-              </VisitButton>
-            </VisitBlock>
+            </VisitBlockNav>
           </ContentBlock>
         </Content>
       </Container>
@@ -171,6 +186,20 @@ const VisitButton = styled.a`
 
 const VisitBlock = styled.div`
   margin-top: 32px;
+  ${flex("row", "center")};
+  @media screen and (max-width: 991px) {
+    position: absolute;
+    bottom: 64px;
+    left: 0;
+    width: 100%;
+  }
+`;
+
+const VisitBlockNav = styled.div`
+  margin-top: 32px;
+  bottom: 64px;
+  z-index: 2;
+  position: absolute;
   ${flex("row", "center")};
   @media screen and (max-width: 991px) {
     position: absolute;
