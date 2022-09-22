@@ -43,6 +43,11 @@ const SearchBlock = ({ state, actions }) => {
     };
   }, []);
 
+  let url = state.router.link;
+  if (url.indexOf('#') !== -1) {
+    url = url.slice(0, url.indexOf('#'));
+  }
+
   return (
     <Wrapper>
       <div
@@ -163,13 +168,14 @@ const SearchBlock = ({ state, actions }) => {
                 Change language
               </h3>
               <div>
-                {languages.map(([lang, value, url]) => (
+                {languages.map(([lang, value]) => (
                   <RadioButton
                     key={value}
                     name="language"
                     text={`${lang} - ${value}`}
                     value={value}
-                    url={value === 'EN' ? state.router.link : state.router.link+'?frontity_name=sino-th'}
+                    url={value === 'EN' ? url
+                    : url + '?frontity_name=sino-th'}
                   />
                 ))}
               </div>
