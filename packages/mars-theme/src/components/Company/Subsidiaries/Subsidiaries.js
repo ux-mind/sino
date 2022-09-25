@@ -33,6 +33,10 @@ const Subsidiaries = ({ state, post }) => {
       <Swiper
         className="bg-swiper"
         loop={true}
+        navigation={{
+          prevEl: ".subsidiaries-prev",
+          nextEl: ".subsidiaries-next",
+        }}
         modules={[Pagination, Navigation, Controller]}
         onSwiper={(swiper) => updateSwiper(swiper)}
       >
