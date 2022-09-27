@@ -54,7 +54,11 @@ const NewsPost = ({ state, actions, post }) => {
     'May',
     'Jun',
     'Jul',
-    'Aug'
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
   ]
 
   const dateHandler = (date) => {
@@ -82,19 +86,19 @@ const NewsPost = ({ state, actions, post }) => {
                   shareModalOpened && "share-modal_opened"
                 }`}
               >
-                <ShareLink link={"https://www.facebook.com/share.php?u=www.sinologistics.co.th/" + state.router.link} target="_blank">
+                <ShareLink link={"https://www.facebook.com/share.php?u=www.sinologistics.co.th" + state.router.link} target="_blank">
                   <img width="16" height="16" src={facebook} alt="" />
                   <span>Facebook</span>
                 </ShareLink>
-                <ShareLink link={"https://www.linkedin.com/shareArticle?mini=true&url=www.sinologistics.co.th/" + state.router.link} target="_blank">
+                <ShareLink link={"https://www.linkedin.com/shareArticle?mini=true&url=www.sinologistics.co.th" + state.router.link} target="_blank">
                   <img width="16" height="16" src={linkedin} alt="" />
                   <span>Linkedin</span>
                 </ShareLink>
-                <ShareLink link="/email/">
+                <ShareLink link={"mailto:?subject=sinologistics&body=www.sinologistics.co.th" + state.router.link}>
                   <img width="16" height="16" src={message} alt="" />
                   <span>Email</span>
                 </ShareLink>
-                <ShareLink link={"https://twitter.com/intent/tweet?url=www.sinologistics.co.th/" + state.router.link} target="_blank">
+                <ShareLink link={"https://twitter.com/intent/tweet?url=www.sinologistics.co.th" + state.router.link} target="_blank">
                   <img width="16" height="16" src={twitter} alt="" />
                   <span>Twitter</span>
                 </ShareLink>
