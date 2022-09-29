@@ -28,6 +28,7 @@
     "formik": "^2.2.9",
     "frontity": "^1.17.2",
     "frontity-contact-form-7": "^0.1.7",
+    "frontity-gutenberg-styles": "^9.7.0",
     "frontity-share": "^0.1.5",
     "html-react-parser": "^3.0.1",
     "react-ga": "^3.3.1",
