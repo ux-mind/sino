@@ -17,101 +17,59 @@ import message from "../../../assets/images/svg/Message.svg";
 import phone from "../../../assets/images/svg/Phone.svg";
 import parse from "html-react-parser";
 
-const Location = ({post}) => {
+const Location = ({ post }) => {
   return (
     <Section>
       <Container>
         <Title size="xs" color="blue" marginBottom={32}>
           {post.acf.contact_location_title ? parse(post.acf.contact_location_title) : ''}
         </Title>
-        <LocationBlock>
-          <LocationContent>
-            <Office>{post.acf.contact_location_1_name ? parse(post.acf.contact_location_1_name) : ''}</Office>
-            <Corporation>
-              <p>{post.acf.contact_location_1_text ? parse(post.acf.contact_location_1_text) : ''}</p>
-            </Corporation>
-            <IconBlock icon={mark} marginBottom={16}>
-              {post.acf.contact_location_1_locations ? parse(post.acf.contact_location_1_locations) : ''}
-            </IconBlock>
-            <IconBlock icon={message} marginBottom={16}>
-              <TextLink
+        {post.acf.contact_locations.map((item) => (
+          <LocationBlock>
+            <LocationContent>
+              <Office>{item.contact_location_name ? parse(item.contact_location_name) : ''}</Office>
+              <Corporation>
+                <p>{item.contact_location_text ? parse(item.contact_location_text) : ''}</p>
+              </Corporation>
+              <IconBlock icon={mark} marginBottom={16}>
+                {item.contact_location_address ? parse(item.contact_location_address) : ''}
+              </IconBlock>
+              <IconBlock icon={message} marginBottom={16}>
+                <TextLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  link={`mailto:${item.contact_location_mail}`}
+                >
+                  {item.contact_location_mail}
+                </TextLink>
+              </IconBlock>
+              <IconBlock icon={phone} marginBottom={16}>
+                <TextLink
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  link={`tel:${item.contact_location_phone}`}
+                >
+                  {item.contact_location_phone}
+                </TextLink>
+              </IconBlock>
+            </LocationContent>
+            <MapWrapper>
+              <Map
                 target="_blank"
                 rel="noopener noreferrer"
-                link={`mailto:${post.acf.contact_location_1_mail}`}
+                link={item.contact_location_map_link}
               >
-                {post.acf.contact_location_1_mail}
-              </TextLink>
-            </IconBlock>
-            <IconBlock icon={phone} marginBottom={16}>
-              <TextLink
-                target="_blank"
-                rel="noopener noreferrer"
-                link={`tel:${post.acf.contact_location_1_phone}`}
-              >
-                {post.acf.contact_location_1_phone}
-              </TextLink>
-            </IconBlock>
-          </LocationContent>
-          <MapWrapper>
-            <Map
-              target="_blank"
-              rel="noopener noreferrer"
-              link={post.acf.contact_location_1_map_link}
-            >
-              <img
-                width="558"
-                height="340"
-                src={post.acf.contact_location_1_map_1x.url}
-                srcSet={`${post.acf.contact_location_1_map_1x.url} 1x, ${post.acf.contact_location_1_map_2x.url} 2x`}
-                alt=""
-              />
-            </Map>
-          </MapWrapper>
-        </LocationBlock>
-        <LocationBlock>
-          <LocationContent>
-            <Office>{post.acf.contact_location_2_name ? parse(post.acf.contact_location_2_name) : ''}</Office>
-            <Corporation>
-              <p>{post.acf.contact_location_2_text ? parse(post.acf.contact_location_2_text) : ''}</p>
-            </Corporation>
-            <IconBlock icon={mark} marginBottom={16}>
-              {post.acf.contact_location_2_locations ? parse(post.acf.contact_location_2_locations) : ''}
-            </IconBlock>
-            <IconBlock icon={message} marginBottom={16}>
-              <TextLink
-                target="_blank"
-                rel="noopener noreferrer"
-                link={`mailto:${post.acf.contact_location_2_mail}`}
-              >
-                {post.acf.contact_location_2_mail}
-              </TextLink>
-            </IconBlock>
-            <IconBlock icon={phone} marginBottom={16}>
-              <TextLink
-                target="_blank"
-                rel="noopener noreferrer"
-                link={`tel:${post.acf.contact_location_2_phone}`}
-              >
-                {post.acf.contact_location_2_phone}
-              </TextLink>
-            </IconBlock>
-          </LocationContent>
-          <MapWrapper>
-            <Map
-              target="_blank"
-              rel="noopener noreferrer"
-              link={post.acf.contact_location_2_map_link}
-            >
-              <img
-                width="558"
-                height="340"
-                src={post.acf.contact_location_2_map_1x.url}
-                srcSet={`${post.acf.contact_location_2_map_1x.url} 1x, ${post.acf.contact_location_2_map_2x.url} 2x`}
-                alt=""
-              />
-            </Map>
-          </MapWrapper>
-        </LocationBlock>
+                <img
+                  width="558"
+                  height="340"
+                  src={item.contact_location_map_1x.url}
+                  srcSet={`${item.contact_location_map_1x.url} 1x, ${item.contact_location_map_2x.url} 2x`}
+                  alt=""
+                />
+              </Map>
+            </MapWrapper>
+          </LocationBlock>
+        ))}
       </Container>
     </Section>
   );
